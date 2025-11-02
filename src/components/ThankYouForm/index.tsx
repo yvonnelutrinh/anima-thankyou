@@ -9,7 +9,7 @@ const PDFTEXT = "Thank you for your support!";
 
 export default function ThankYouForm() {
   // instantiate form, controlled inputs, handle submit
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, watch } = useForm();
   const onSubmit = (data) => generatePDF(data);
 
   async function generatePDF(data) {
@@ -62,6 +62,9 @@ export default function ThankYouForm() {
       <PDFPreview
         width={IMAGEDIMENSIONS.width}
         height={IMAGEDIMENSIONS.height}
+        firstName={watch("firstName")}
+        lastName={watch("lastName")}
+        pdftext={PDFTEXT}
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
