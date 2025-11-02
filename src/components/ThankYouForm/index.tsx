@@ -5,9 +5,15 @@ import { PDFDocument, rgb } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
 
 const IMAGEDIMENSIONS = { width: 754, height: 387 };
-const PDFTEXT = "Thank you for your support!";
+const PDFTEXT = "Thank you for supporting us";
 
 export default function ThankYouForm() {
+  function customPDFText(firstName, lastName, baseText) {
+    if (firstName || lastName) {
+      return baseText + ", " + firstName + " " + lastName + "!";
+    }
+    return baseText + "!";
+  }
   // instantiate form, controlled inputs, handle submit
   const { register, handleSubmit, watch } = useForm();
   const onSubmit = (data) => generatePDF(data);
@@ -36,13 +42,16 @@ export default function ThankYouForm() {
 
     // draw string of text near top of the page
     const fontSize = 30;
-    page.drawText(PDFTEXT, {
-      x: 50,
-      y: height - 4 * fontSize,
-      size: fontSize,
-      font: poppins,
-      color: rgb(0, 0, 0),
-    });
+    page.drawText(
+      customPDFText(watch("firstName"), watch("lastName"), PDFTEXT),
+      {
+        x: 50,
+        y: height - 4 * fontSize,
+        size: fontSize,
+        font: poppins,
+        color: rgb(0, 0, 0),
+      }
+    );
 
     // serialize pdf to bytes
     const pdfBytes = await pdfDoc.save();
@@ -62,9 +71,7 @@ export default function ThankYouForm() {
       <PDFPreview
         width={IMAGEDIMENSIONS.width}
         height={IMAGEDIMENSIONS.height}
-        firstName={watch("firstName")}
-        lastName={watch("lastName")}
-        pdftext={PDFTEXT}
+        pdfText={customPDFText(watch("firstName"), watch("lastName"), PDFTEXT)}
       />
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
