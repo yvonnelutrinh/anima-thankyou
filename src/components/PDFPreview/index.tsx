@@ -1,17 +1,18 @@
 import Image from "next/image";
 
-export default function PDFPreview({ width, height, pdfText }) {
+interface PDFPreviewProps {
+  width: number;
+  height: number;
+  pdfText: string;
+}
+
+export default function PDFPreview({ width, height, pdfText }: PDFPreviewProps) {
   return (
-    <div className="inline-block relative" id="pdf-preview">
+    <div
+      className="relative inline-block" id="pdf-preview">
       <p
-        style={{
-          position: "absolute",
-          bottom: height - 6 * 30,
-          left: 50,
-          width: "50%",
-          color: "white",
-          fontSize: 30
-        }}
+        className="absolute text-white left-12 bottom-[40%] w-1/2 
+        text-[clamp(1rem,4vw,2.5rem)]"
       >
         {pdfText}
       </p>
