@@ -11,7 +11,7 @@
   --font-sans: var(--font-poppins);
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;
     --foreground: #ffffff;
