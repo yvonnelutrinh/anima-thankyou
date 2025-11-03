@@ -17,7 +17,7 @@ export default function PDFPreview({ width, height, pdfText }: PDFPreviewProps) 
         </p>
       </div>
       <Image
-        src="/assets/arctic-fox.png"
+        src="/anima-thankyou/assets/arctic-fox.png"
         alt="Portrait of an Arctic fox looking at the camera"
         width={width}
         height={height}
