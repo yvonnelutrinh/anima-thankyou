@@ -8,7 +8,11 @@ const PDFTEXT = "Thank you for supporting us";
 
 export default function ThankYouForm() {
   // custom message generator
-  function customPDFText(firstName, lastName, baseText) {
+  function customPDFText(
+    baseText: string,
+    firstName: string,
+    lastName: string
+  ) {
     if (firstName || lastName) {
       return baseText + ", " + firstName + " " + lastName + "!";
     }
@@ -58,7 +62,7 @@ export default function ThankYouForm() {
       <PDFPreview
         width={IMAGEDIMENSIONS.width}
         height={IMAGEDIMENSIONS.height}
-        pdfText={customPDFText(watch("firstName"), watch("lastName"), PDFTEXT)}
+        pdfText={customPDFText(PDFTEXT, watch("firstName"), watch("lastName"))}
       />
       <form
         className="mt-8 grid gap-4 sm:grid-cols-3 items-end"
