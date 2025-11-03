@@ -2,9 +2,8 @@ import ThankYouForm from "../ThankYouForm";
 
 export default function CustomPDFGenerator() {
   return (
-    <section>
-      <h2>Download a thank you card</h2>
-      <p>Fill out the form below to download a custom thank you from our team.</p>
+    <section className="mt-6 max-w-[754px]">
+      <p className="my-4">Add your name to download a custom thank you card.</p>
       <ThankYouForm />
     </section>
   );

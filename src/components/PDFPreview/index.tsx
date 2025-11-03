@@ -11,7 +11,7 @@ export default function PDFPreview({ width, height, pdfText }: PDFPreviewProps) 
     <div
       className="relative inline-block" id="pdf-preview">
       <p
-        className="absolute text-white left-12 bottom-[40%] w-1/2 
+        className="absolute text-white left-12 bottom-[40%] w-2/5 
         text-[clamp(1rem,4vw,2.5rem)]"
       >
         {pdfText}
