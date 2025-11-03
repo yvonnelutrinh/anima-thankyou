@@ -2,6 +2,8 @@
 
 This is a simple thank you card generator app with custom PDF download for Anima International.
 
+Live demo: [https://yvonnelutrinh.github.io/anima-thankyou/](https://yvonnelutrinh.github.io/anima-thankyou/)
+
 ## Run locally
 
 First, clone this repository and install dependencies before running the development server:
@@ -25,4 +27,4 @@ Open [http://localhost:3000/anima-thankyou](http://localhost:3000/anima-thankyou
 
 ## Deploy on Github
 
-A live demo of this app is deployed using GitHub Actions and Pages. Deployment happens automatically through `.github/workflows/deploy.yml` each time a commit is made to the main branch.
+A [live demo](https://yvonnelutrinh.github.io/anima-thankyou/) of this app is deployed using GitHub Actions and Pages. Deployment happens automatically through `.github/workflows/deploy.yml` each time a commit is made to the main branch.
